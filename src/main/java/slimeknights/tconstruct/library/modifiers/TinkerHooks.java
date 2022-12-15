@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.hook.ArmorWalkModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.BlockTransformModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.ElytraFlightModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.HarvestEnchantmentsModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.InteractModifierHook;
@@ -116,6 +117,10 @@ public class TinkerHooks {
       }
     }
   });
+
+  /** Hook called on all tool modifiers after transforming a block */
+  public static final ModifierHook<BlockTransformModifierHook> BLOCK_TRANSFORM = register("block_transform",
+    BlockTransformModifierHook.class, BlockTransformModifierHook.ALL_MERGER, BlockTransformModifierHook.DEFAULT);
 
 
   /** Registers a new modifier hook under {@code tconstruct} */
